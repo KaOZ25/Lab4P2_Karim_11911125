@@ -9,7 +9,7 @@ package lab4p2_karimguifarro;
  *
  * @author karim
  */
-public class Soldados {
+public abstract class Soldados {
     private String nombre,rango;
     private int edad,tiempo_ejer,hp;
 
@@ -68,5 +68,5 @@ public class Soldados {
     public String toString() {
         return "nombre=" + nombre + ", rango=" + rango + ", edad=" + edad + ", tiempo_ejer=" + tiempo_ejer + ", hp=" + hp + '}';
     }
-    
+    public abstract void ataque();
 }
