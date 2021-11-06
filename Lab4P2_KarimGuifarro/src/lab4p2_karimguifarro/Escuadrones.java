@@ -19,8 +19,9 @@ public class Escuadrones {
     public Escuadrones() {
     }
 
-    public Escuadrones(String nombre) {
+    public Escuadrones(String nombre,ArrayList<Soldados> conquista,ArrayList<Zonas> escuadron) {
         this.nombre = nombre;
+        
     }
 
     @Override

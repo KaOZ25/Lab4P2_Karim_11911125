@@ -391,7 +391,7 @@ public class Lab4P2_KarimGuifarro {
                     listZ();
                 }//fin case 3
                 case 4: {
-                   int pos;
+                    int pos;
                     listZ();
                     System.out.println("Ingrese el soldado que desea editar");
                     pos = KaOz.nextInt();
@@ -412,7 +412,7 @@ public class Lab4P2_KarimGuifarro {
     }
 
     public static void Escuadrones() {
-         char k = 'c';
+        char k = 'c';
         while (k == 'c' || k == 'C') {
             System.out.println("*****MENU******\n"
                     + "1)Crear\n"
@@ -423,15 +423,76 @@ public class Lab4P2_KarimGuifarro {
             int op = KaOz.nextInt();
             switch (op) {
                 case 1: {
-                    Soldados();
+                    String nombre;
+                    ArrayList<Zonas> conquista = new ArrayList();
+                    ArrayList<Soldados> escuadron = new ArrayList();
+                    int contss=0,contc=0,conts=0;
+                    System.out.println("Ingrese el nombre:");
+                    nombre=KaOz.next();
+                    char c='k';
+                    listS();
+                   while(c=='k'){
+                      int pos;
+                       System.out.println("Ingrese el soldado que desea añadir a su escuadron");
+                       pos=KaOz.nextInt();
+                       if (pos>s.size()) {
+                           System.out.println("ese soldado no existe");
+                       }
+                       Soldados sol= s.get(pos);
+                       if ((s.get(pos)) instanceof SuperSoldado) {
+                           contss=1;
+                       }
+                       escuadron.add(sol);
+                       System.out.println("Desea continuar?[1/2]");
+                      int ops=KaOz.nextInt();
+                      switch(ops){
+                          case 1:{
+                              c='k';
+                          }
+                          break;
+                          case 2:{
+                              c='j';
+                          }
+                          break;
+                          default:
+                              System.out.println("error");
+                      }
+                   }
+                   char l='f';
+                   listZ();
+                   while(l=='f'){
+                        int pos;
+                       System.out.println("Ingrese el soldado que desea añadir a su escuadron");
+                       pos=KaOz.nextInt();
+                       if (pos>s.size()) {
+                           System.out.println("ese soldado no existe");
+                       }
+                       Zonas sol= z.get(pos);
+                       conquista.add(sol);
+                       System.out.println("Desea continuar?[1/2]");
+                      int ops=KaOz.nextInt();
+                      switch(ops){
+                          case 1:{
+                              l='f';
+                          }
+                          break;
+                          case 2:{
+                              l='o';
+                          }
+                          break;
+                          default:
+                              System.out.println("error");
+                      }
+                   }
+                   e.add(new Escuadrones(nombre,escuadron,conquista));
                 }//fin case 1
                 break;
                 case 2: {
-                    Zonas();
+                   
                 }//fin case 2
                 break;
                 case 3: {
-                    Escuadrones();
+                   listE();
                 }//fin case 3
                 case 4: {
                     simulacion();
@@ -462,6 +523,13 @@ public class Lab4P2_KarimGuifarro {
         int cont = 0;
         for (Zonas zo : z) {
             System.out.println(cont + " " + zo);
+            cont++;
+        }
+    }
+    public static void listE() {
+        int cont = 0;
+        for (Escuadrones es : e) {
+            System.out.println(cont + " " + es);
             cont++;
         }
     }
